@@ -7,12 +7,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do-List</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
 
-    <p>hello!</p>
+    <!-- Header/Nav bar -->
+    <div class="header-container">
+        <nav class="nav-container">
+            <button class="side-btn nav-btn" id="side-bar-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <button class="home-btn nav-btn" id="home-btn">
+                <i class="fas fa-home"></i>
+            </button>
+            <button class="add-btn nav-btn" id="add-btn">
+                <i class="fas fa-plus"></i>
+            </button>
+        </nav>
+    </div>
 
+    <!-- Body -->
+    <div class="body-container">
+        <div class="title-container">
+            <span>Today</span>
+        </div>
+        <div class="body-content" id="body-content"></div>
+    </div>
+
+    <!-- Side bar -->
+    <div class="side-bar">
+        <ul class="side-bar-list">
+            <li class="today-btn" id="today-btn">
+                <span>Today</span>
+            </li>
+            <li class="projects-btn" id="projects-btn">
+                <span>Projects</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-container">
+        <div class="modal">
+            <header class="modal-header">
+                <h1>New Task</h1>
+            </header>
+
+            <div class="modal-body-container">
+                <form class="modal-form">
+                    <div>
+                        <label for="">Title:</label>
+                        <input type="text" class="title-input form-input" id="title-input">
+                    </div>
+
+                    <div>
+                        <label for="">Description:</label>
+                        <textarea name="modalDescript" id="modal-textarea" cols="30" rows="10"
+                            class="modal-textarea form-input"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="">Due Date:</label>
+                        <input type="text" class="modal-date form-input" id="modal-date">
+                    </div>
+
+                    <div>
+                        <label for="">Priority:</label>
+                        <input type="text" class="modal-priority form-input" id="modal-priority">
+                    </div>
+                    <button class="modal-submit" id="modal-submit form-btn">Submit</button>
+                    <button class="modal-cancel" id="modal-cancel form-btn">Cancel</button>
+                </form>
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
 
     <script src="main.js"></script>
 </body>
