@@ -20,37 +20,63 @@
             <button class="side-btn nav-btn" id="side-bar-btn">
                 <i class="fas fa-bars"></i>
             </button>
-            <button class="home-btn nav-btn" id="home-btn">
-                <i class="fas fa-home"></i>
-            </button>
-            <button class="add-btn nav-btn" id="add-btn">
-                <i class="fas fa-plus"></i>
-            </button>
         </nav>
     </div>
 
     <!-- Body -->
-    <div class="body-container">
+    <div class="body-container" id="body-container">
         <div class="title-container">
-            <span>Today</span>
+            <span>All Tasks</span>
         </div>
-        <div class="body-content" id="body-content"></div>
+        <div class="body-content" id="body-content">
+        </div>
     </div>
 
     <!-- Side bar -->
-    <div class="side-bar">
+    <div class="side-bar" id="side-bar">
         <ul class="side-bar-list">
-            <li class="today-btn" id="today-btn">
+            <li class="side-btn" id="side-btn">
+                <span>All Tasks</span>
+            </li>
+            <li class="side-btn" id="side-btn">
                 <span>Today</span>
             </li>
-            <li class="projects-btn" id="projects-btn">
-                <span>Projects</span>
+            <li class="side-btn" id="side-btn">
+                <span>This Week</span>
             </li>
+
+            <div class="proj-div">
+                <span class="project-side-text">
+                    Projects
+                    <button class="add-project-btn" id="add-project-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </span>
+
+                <div class="proj-container" id="proj-container">
+
+                </div>
+
+            </div>
+
+
         </ul>
     </div>
 
-    <!-- Modal -->
-    <div class="modal-container">
+    <!-- Add project -->
+    <div class="add-project-form" id="add-project-form">
+        <div class="add-project-content">
+            <label class="form-label">Add Project Title</label>
+            <input type="text" class="form-input" id="project-title-input" placeholder="Type your title here...">
+            <div class="form-btn-container">
+                <button class="project-submit-btn" id="project-submit-btn">Submit</button>
+                <button class="project-cancel-btn" id="project-cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div class="modal-container" id="modal-container">
         <div class="modal">
             <header class="modal-header">
                 <h1>New Task</h1>
@@ -59,36 +85,28 @@
             <div class="modal-body-container">
                 <form class="modal-form">
                     <div>
-                        <label for="">Title:</label>
+                        <label for="title">Title:</label>
                         <input type="text" class="title-input form-input" id="title-input">
                     </div>
 
                     <div>
-                        <label for="">Description:</label>
+                        <label for="descript">Description:</label>
                         <textarea name="modalDescript" id="modal-textarea" cols="30" rows="10"
                             class="modal-textarea form-input"></textarea>
                     </div>
 
                     <div>
-                        <label for="">Due Date:</label>
+                        <label for="dueDate">Due Date:</label>
                         <input type="text" class="modal-date form-input" id="modal-date">
                     </div>
 
                     <div>
-                        <label for="">Priority:</label>
+                        <label for="priority">Priority:</label>
                         <input type="text" class="modal-priority form-input" id="modal-priority">
                     </div>
-                    <button class="modal-submit" id="modal-submit form-btn">Submit</button>
+                    <button type="submit" class="modal-submit" id="modal-submit form-btn">Submit</button>
                     <button class="modal-cancel" id="modal-cancel form-btn">Cancel</button>
                 </form>
-
-
-
-
-
-
-
-
 
 
             </div>

@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
 * {
     box-sizing: border-box;
@@ -6,14 +6,15 @@
 
 body {
     margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+ 
 }
 
 /* Header - Nav-bar */
 
 .header-container {
-    background-color: #54BAB9;
-    height: 2.5em;
-    text-align: center;
+    background-color: #91C483;
+    height: 3em;
     z-index: 999;
     position: relative;
 }
@@ -25,31 +26,81 @@ body {
 .nav-btn {
     background: transparent;
     border: none;
-    font-size: 16px;
+    font-size: 24px;
     cursor: pointer;
+    margin-left: 2em;
 }
 
-.side-btn {
-   
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 2px;
 }
+
+
+
 
 /* Body */
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 320px;
+    transition: margin .3s ease;
+}
+
+.body-container.toggle {
+    margin-left: 0;
+}
+
+.title-container {
+    padding-top: 10px;
+    font-size: 1.75rem;
+    width: 100%;
+}
+
+/* Body content */
+
+.body-content {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    height: 100vh;
+    width: 100%;
+    
+}
+
+.card-div {
+    border: 5px solid #000;
+    height: 300px;
+    width: 250px;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #04637E;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    position: relative;
+}
+
 
 
 /* Side-bar */
 .side-bar {
-    background-color: teal;
-    border-right: 2px solid #000;
+    background-color: #EFEFEF;
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
+    width: 305px;
     height: calc(100vh);
-    /* transform: translateX(-100%); */
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+.side-bar.close {
+
+    transform: translateX(-100%);
 }
 
 .side-bar ul {
-    margin-top: 50%;
+    margin-top: 30%;
     list-style: none;
 }
 
@@ -57,7 +108,7 @@ body {
     margin: 20px 0;
     cursor: pointer;
     padding: 10px;
-    width: 75%;
+    width: 100%;
 }
 
 .side-bar ul li:hover {
@@ -65,23 +116,107 @@ body {
     border-radius: 2px;
 }
 
-.side-bar .show {
-    
+.project-side-text {
+    display: block;
+    margin: 20% 1%;
+    padding: 10px;
+    cursor: default;
+    border-bottom: 1px solid #000;
+    font-size: 26px;
+}
+
+.add-project-btn {
+    background: transparent;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    margin-left: 50%;
+}
+
+.add-project-btn:hover {
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 2px;
+}
+
+/* Projects */
+
+.add-project-form {
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 405px;
+    padding: 20px 30px;
+    background-color: #b3e0f1;
+    color: #323838;
+    border: solid 1px #979e9e;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: top 0ms ease-in-out 200ms,
+        opacity 200ms ease-in-out 0ms,
+        transform 20ms ease-in-out 0ms;
+}
+
+.add-project-form.show {
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: top 0ms ease-in-out 0ms,
+        opacity 200ms ease-in-out 0ms,
+        transform 20ms ease-in-out 0ms;
+}
+
+.proj-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-container{
+    background-color: #f1dfdf;
+    border: 1px solid #e58484;
+    width: 210px;
+    height: 95px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.project-title {
+    margin: 15px;
+    font-size: 18px;
+}
+
+.project-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
 }
 
 
 
-
-/* Add btn modal */
+/* Modal */
 
 .modal-container {
-    background-color: rgba(0, 0, 0, .6);
+    /* background-color: rgba(0, 0, 0, .6); */
     display: none;
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+}
+
+.modal-container.show {
+    background-color: rgba(0, 0, 0, .6);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    display: block;
 }
 
 .modal {
