@@ -174,15 +174,25 @@ body {
 }
 
 .project-container{
-    background-color: #f1dfdf;
-    border: 1px solid #e58484;
-    width: 210px;
-    height: 95px;
+    background-color: #f0caca;
+
+    width: 100%;
+    height: 20%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     margin: auto;
     cursor: pointer;
     border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+
 }
+
+.project-container:hover {
+    background-color: #AD6767;
+}
+
+
+
 
 .project-title {
     margin: 15px;
@@ -191,9 +201,56 @@ body {
 
 .project-btn-container {
     display: flex;
-    justify-content: center;
+    align-items: center;
     gap: 8px;
+    margin-right: 10px;
 }
+
+
+.project-delete-btn, .project-edit-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 24px;
+}
+
+.project-delete-btn:hover, .project-edit-btn:hover {
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 5px;
+    
+}
+
+
+/* Inside project */
+
+.proj-title-container{
+    background-color: #f1dfdf;
+    width: 95%;
+    height: 95px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin: 10px auto;
+    border-radius: 8px;
+    position: relative;
+}
+
+.proj-title {
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.add-task-btn {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    font-size: 28px;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+
 
 
 

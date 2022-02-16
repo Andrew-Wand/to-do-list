@@ -1,3 +1,4 @@
+import { openTask } from "./addTask";
 
 const projectTitle = document.getElementById('project-title-input');
 const projectSubmitBtn = document.getElementById('project-submit-btn');
@@ -10,8 +11,10 @@ const projDiv = document.getElementById('proj-container');
 let myProjects = [];
 
 const NewProject = (name) => {
+    let myTasks = [];
     return {
-        name
+        name,
+        myTasks
     }
 }
 
@@ -40,6 +43,7 @@ const submitProject = () => {
 const addProjectForm = (name) => {
     const projectContainer = document.createElement('div')
     projectContainer.classList.add('project-container');
+    projectContainer.addEventListener('click', openTask);
 
     const projectBtnContainer = document.createElement('div');
     projectBtnContainer.classList.add('project-btn-container');
@@ -62,6 +66,9 @@ const addProjectForm = (name) => {
     projectBtnContainer.appendChild(projDeleteBtn);
     projectBtnContainer.appendChild(projEditBtn);
 
+    projEditBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+    projDeleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+
     projDiv.appendChild(projectContainer);
      
 
@@ -75,5 +82,6 @@ const hideForm = () => {
 
 
 export {
-    projectEventListeners
+    projectEventListeners,
+    myProjects
 }
