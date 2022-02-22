@@ -1,5 +1,4 @@
 import { changeProjectDOM } from "./addProject";
-import {  } from "./addTask";
 
 
 
@@ -32,6 +31,7 @@ const addProjectBtn = document.getElementById('add-project-btn');
 
 const addNewProject = e => {
     changeProjectDOM.openProjectForm();
+    projects = changeProjectDOM.getProjectArr();
 
 }
 
