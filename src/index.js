@@ -1,54 +1,46 @@
-import { projectEventListeners } from "./addProject";
+import { changeProjectDOM } from "./addProject";
+import {  } from "./addTask";
 
 
 
-// DOM elements ///////////////////////////
-   
-    // Side bar DOM
-        const sideBtn = document.getElementById('side-bar-btn');
-        const sideBar = document.getElementById('side-bar');
 
+// Local storage for projects
+let projects = [];
+if (localStorage.hasOwnProperty('projects')) {
+    projects = JSON.parse(localStorage.getItem('projects'));
+    projects.forEach(project => {
+        changeProjectDOM.addProject(project)
+    });
+}
 
-
-    // Body
-        const bodyContainer = document.getElementById('body-container');
-
-    // Modal
-        const modalContainer = document.getElementById('modal-container');
-        const modalSubmit = document.getElementById('modal-submit');
-
-    // Buttons
-        const addProjBtn = document.getElementById('add-project-btn');
-        const sideBarProjBtn = document.getElementById('add-project-form');
-
-
-    // Project Form
-       
-
-        
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-// modalSubmit.addEventListener('click', () => {
-//     loadTask();
-// });
-
-
-// Add project form
-projectEventListeners();
-
-
-// Add task btn
-addProjBtn.addEventListener('click', () => {
-    sideBarProjBtn.classList.add('show');
-});
 
 
 
 // Side bar
+const sideBtn = document.getElementById('side-bar-btn');
+const sideBar = document.getElementById('side-bar');
+const bodyContainer = document.getElementById('body-container');
+
 sideBtn.addEventListener('click', () => {
     sideBar.classList.toggle('close');
     bodyContainer.classList.toggle('toggle');
 });
 
+
+// Projects
+const addProjectBtn = document.getElementById('add-project-btn');
+
+const addNewProject = e => {
+    changeProjectDOM.openProjectForm();
+
+}
+
+addProjectBtn.addEventListener('click', addNewProject);
+
+
+
+
+window.onbeforeunload = () => {
+    projects = changeProjectDOM.getProjectArr();
+    localStorage.setItem('projects', JSON.stringify(projects));
+}

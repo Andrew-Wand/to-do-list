@@ -1,16 +1,20 @@
-import { openTask } from "./addTask";
 
-const projectTitle = document.getElementById('project-title-input');
-const projectSubmitBtn = document.getElementById('project-submit-btn');
-const sideBarProjBtn = document.getElementById('add-project-form');
+
+
+const changeProjectDOM = (() => {
+
+// DOM
 const projDiv = document.getElementById('proj-container');
 
 
 
-
+// Project array
 let myProjects = [];
 
-const NewProject = (name) => {
+
+
+// Project factory function
+const CreateProject = (name) => {
     let myTasks = [];
     return {
         name,
@@ -18,38 +22,34 @@ const NewProject = (name) => {
     }
 }
 
-const projectEventListeners = () => {
-    projectSubmitBtn.addEventListener('click', submitProject);
-    
-    return projectEventListeners;
+// Open project entry form
+const openProjectForm = () => {
+    const projForm = document.getElementById('add-project-form');
+    projForm.classList.add('show');
+
+    const submitProject = (e) => {
+        e.preventDefault();
+        const projectTitleInput = document.getElementById('project-title-input');
+        let project = CreateProject(projectTitleInput.value);
+        projForm.classList.remove('show');
+        addProject(project);
+    }
+    const submitProjectBtn = document.getElementById('project-submit-btn');
+    submitProjectBtn.addEventListener('click', submitProject);
 }
 
 
-const submitProject = () => {
-    const titleInput = projectTitle.value;
-
-    const createProject = NewProject(titleInput);
-
-    myProjects.push(createProject);
-
-    addProjectForm(titleInput)
-
-    hideForm();
-}
-
-
-
-
-const addProjectForm = (name) => {
+// Add project to DOM
+const addProject = (project) => {
     const projectContainer = document.createElement('div')
     projectContainer.classList.add('project-container');
-    projectContainer.addEventListener('click', openTask);
+    projectContainer.setAttribute('id', 'project-container');
 
     const projectBtnContainer = document.createElement('div');
     projectBtnContainer.classList.add('project-btn-container');
 
-    const projectTitle = document.createElement('p');
-    projectTitle.textContent = name;
+    const projectTitle = document.createElement('div');
+    projectTitle.textContent = `${project.name}`;
     projectTitle.classList.add('project-title');
 
     const projDeleteBtn = document.createElement('button');
@@ -70,11 +70,58 @@ const addProjectForm = (name) => {
     projDeleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
 
     projDiv.appendChild(projectContainer);
-     
+
+    myProjects.push(project);
 
 
 
 }
+
+const getProjectArr = () => {
+    return myProjects;
+}
+
+
+
+return {
+    addProject,
+    openProjectForm,
+    getProjectArr
+}
+
+
+
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const hideForm = () => {
     sideBarProjBtn.classList.remove('show');
@@ -82,6 +129,5 @@ const hideForm = () => {
 
 
 export {
-    projectEventListeners,
-    myProjects
+    changeProjectDOM
 }

@@ -1,15 +1,35 @@
-import {
-    myProjects,
-    projectEventListeners
-} from './addProject';
-
-const bodyContainer = document.getElementById('body-container');
-const projectTitleInput = document.getElementById('project-title-input');
 
 
 
-const CreateTask = (title) => {
+
+
+
+
+
+function openTaskModal() {
+    const modalContainer = document.getElementById('modal-container');
+    modalContainer.classList.add('show');
+}
+
+
+
+// Hide task form
+const hideListForm = () => {
+    const listForm = document.getElementById('modal-form');
+    const listInput = document.getElementById('title-input');
+
+    listInput.value = "";
+    listForm.classList.add("hidden");
+}
+
+
+
+
+
+const CreateTask = (dataProject, id, title) => {
     return {
+        dataProject,
+        id,
         title
     }
 }
@@ -19,18 +39,38 @@ const CreateTask = (title) => {
 
 
 
-// submit Task
+// Create Task in HTML
+function addTask(listId, title) {
+    const ul = document.getElementById('task-list');
+    const li = document.createElement('li');
 
-const submitTask = () => {
-    
+    li.id = listId;
+    ul.appendChild(li);
+
+    const taskContent = document.createElement('div');
+    taskContent.classList.add('task-content');
+    li.appendChild(taskContent);
+
+    const taskTitle = document.createElement('div');
+    taskTitle.classList.add('task-title');
+    taskTitle.textContent = title;
+    taskContent.appendChild(taskTitle);
+
 }
 
 
 
 
+// update title of the content
+function updateTitle(nameNode) {
+    const mainTitle = document.querySelector('.proj-title');
+    mainTitle.textContent = nameNode.textContent;
+}
+
+
 
 // Task Title DOM
-const openTask = () => {
+const openProject = () => {
     bodyContainer.innerHTML = '';
 
     // Title container
@@ -45,21 +85,14 @@ const openTask = () => {
     projTitleContainer.appendChild(projTitle);
 
 
-    projTitle.innerHTML = projectTitleInput.value;
 
 
-    // Add task button
-    const addTaskBtn = document.createElement('button');
-    addTaskBtn.innerText = 'Button';
-    addTaskBtn.classList.add('add-task-btn');
-    addTaskBtn.innerHTML = '<i class="fa-solid fa-circle-plus"></i>';
+    // Add task btn
+    const addTaskBtn = document.getElementById('add-task-btn');
     projTitleContainer.appendChild(addTaskBtn);
 
-    return projTitleContainer
 }
 
 export {
-    openTask
+   
 }
-
-

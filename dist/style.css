@@ -250,7 +250,24 @@ body {
     cursor: pointer;
 }
 
+/* Tasks */
 
+.task-content {
+    height: 300px;
+    width: 300px;
+}
+
+.hidden{
+    top:0;
+    left:0;
+    pointer-events: none !important;
+    position: absolute !important;
+    max-height:0 !important;
+
+    /* do nth but avoid opacity transition when position absolute */
+    transition: max-height 1s ease-out !important;    
+    opacity: 0 !important;
+}
 
 
 

@@ -26,16 +26,21 @@
     <!-- Body -->
     <div class="body-container" id="body-container">
         <div class="title-container" id="title-container">
-            <span id="project-title">All Tasks</span>
+            <span id="project-title">Choose or create a project to begin!</span>
         </div>
 
         <div class="body-content" id="body-content">
+            <ul class="task-list" id="task-list">
+
+            </ul>
         </div>
     </div>
 
+
+
     <!-- Side bar -->
     <div class="side-bar" id="side-bar">
-        <ul class="side-bar-list">
+        <!-- <ul class="side-bar-list">
             <li class="side-btn" id="side-btn">
                 <span>All Tasks</span>
             </li>
@@ -46,35 +51,37 @@
                 <span>This Week</span>
             </li>
 
-            <div class="proj-div">
-                <span class="project-side-text">
-                    Projects
-                    <button class="add-project-btn" id="add-project-btn">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                </span>
 
-                <div class="proj-container" id="proj-container">
 
-                </div>
+
+        </ul> -->
+
+        <div class="proj-div">
+            <span class="project-side-text">
+                Projects
+                <button class="add-project-btn" id="add-project-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </span>
+
+            <div class="proj-container" id="proj-container">
 
             </div>
 
-
-        </ul>
+        </div>
     </div>
 
     <!-- Add project -->
-    <div class="add-project-form" id="add-project-form">
+    <form class="add-project-form" id="add-project-form">
         <div class="add-project-content">
             <label class="form-label">Add Project Title</label>
             <input type="text" class="form-input" id="project-title-input" placeholder="Type your title here...">
             <div class="form-btn-container">
-                <button class="project-submit-btn" id="project-submit-btn">Submit</button>
-                <button class="project-cancel-btn" id="project-cancel-btn">Cancel</button>
+                <button type="submit" class="project-submit-btn" id="project-submit-btn"> Submit </button>
+                <button type="submit" class="project-cancel-btn" id="project-cancel-btn">Cancel </button>
             </div>
         </div>
-    </div>
+    </form>
 
     <!-- Task Modal -->
     <div class="modal-container" id="modal-container">
@@ -84,13 +91,13 @@
             </header>
 
             <div class="modal-body-container">
-                <form class="modal-form">
+                <form class="modal-form" id="modal-form">
                     <div>
                         <label for="title">Title:</label>
                         <input type="text" class="title-input form-input" id="title-input">
                     </div>
 
-                    <div>
+                    <!-- <div>
                         <label for="descript">Description:</label>
                         <textarea name="modalDescript" id="modal-textarea" cols="30" rows="10"
                             class="modal-textarea form-input"></textarea>
@@ -104,7 +111,7 @@
                     <div>
                         <label for="priority">Priority:</label>
                         <input type="text" class="modal-priority form-input" id="modal-priority">
-                    </div>
+                    </div> -->
                     <button type="submit" class="modal-submit" id="modal-submit form-btn">Submit</button>
                     <button class="modal-cancel" id="modal-cancel form-btn">Cancel</button>
                 </form>
@@ -116,6 +123,9 @@
 
     </div>
 
+    <button class="add-task-btn" id="add-task-btn">
+        <i class="fa-solid fa-circle-plus"></i>
+    </button>
     <script src="main.js"></script>
 </body>
 
