@@ -3,9 +3,6 @@
 
 
 
-
-
-
 function openTaskModal() {
     const modalContainer = document.getElementById('modal-container');
     modalContainer.classList.add('show');
@@ -26,10 +23,8 @@ const hideListForm = () => {
 
 
 
-const CreateTask = (dataProject, id, title) => {
+const CreateTask = (title) => {
     return {
-        dataProject,
-        id,
         title
     }
 }

@@ -73,6 +73,17 @@ const addProject = (project) => {
 
     myProjects.push(project);
 
+    const deleteProject = e => {
+        projectContainer.textContent = '';
+        projectContainer.style.display = 'none';
+        const index = myProjects.indexOf(project);
+        if (index > -1) {
+            myProjects.splice(index, 1);
+        }
+    }
+
+    projDeleteBtn.addEventListener('click', deleteProject);
+
 
 
 }
