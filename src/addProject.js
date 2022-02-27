@@ -26,16 +26,32 @@ const changeProjectDOM = (() => {
     const openProjectForm = () => {
         const projForm = document.getElementById('add-project-form');
         projForm.classList.add('show');
+        const projectTitleInput = document.getElementById('project-title-input');
+        projectTitleInput.required = true;
+        
 
-        const submitProject = (e) => {
-            e.preventDefault();
+        const submitProject = (event) => {
+            event.preventDefault();
             const projectTitleInput = document.getElementById('project-title-input');
             let project = CreateProject(projectTitleInput.value);
             projForm.classList.remove('show');
             addProject(project);
+            projectTitleInput.value = '';
+
+            
+            
+            
+           
+            // submitProjectBtn.setAttribute('disabled', true);
+
         }
+
+
         const submitProjectBtn = document.getElementById('project-submit-btn');
         submitProjectBtn.addEventListener('click', submitProject);
+        // setTimeout(function () {
+        //     submitProjectBtn.setAttribute('disabled', false);
+        // }, 3000);
     }
 
     // Open project page
