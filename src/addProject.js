@@ -30,29 +30,37 @@ const changeProjectDOM = (() => {
         projectTitleInput.required = true;
         
 
-        const submitProject = (event) => {
-            event.preventDefault();
-            const projectTitleInput = document.getElementById('project-title-input');
-            let project = CreateProject(projectTitleInput.value);
-            projForm.classList.remove('show');
-            addProject(project);
-            projectTitleInput.value = '';
+       
+        
 
-            
-            
-            
-           
-            // submitProjectBtn.setAttribute('disabled', true);
-
-        }
-
-
-        const submitProjectBtn = document.getElementById('project-submit-btn');
-        submitProjectBtn.addEventListener('click', submitProject);
+        // const projForm = document.getElementById('add-project-form');
+        
+        // const submitProjectBtn = document.getElementById('project-submit-btn');
+        // submitProjectBtn.addEventListener('click', submitProject);
+        
+        
         // setTimeout(function () {
         //     submitProjectBtn.setAttribute('disabled', false);
         // }, 3000);
     }
+
+    const submitProject = (event) => {
+        event.preventDefault();
+        const projectTitleInput = document.getElementById('project-title-input');
+        let project = CreateProject(projectTitleInput.value);
+        projForm.classList.remove('show');
+        addProject(project);
+        projectTitleInput.value = '';
+
+        
+        
+        // submitProjectBtn.setAttribute('disabled', true);
+
+    }
+
+    const projForm = document.getElementById('add-project-form');
+        projForm.addEventListener('submit', submitProject);
+   
 
     // Open project page
     const openProjectPage = e => {
