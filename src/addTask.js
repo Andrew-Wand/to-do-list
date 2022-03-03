@@ -1,5 +1,5 @@
 const changeTaskDOM = (() => {
-    
+
     let projectObj;
 
     const bodyContent = document.getElementById('body-content');
@@ -22,12 +22,17 @@ const changeTaskDOM = (() => {
 
     // Create Task in HTML
     const newTask = (task) => {
-        const taskContainer = document.createElement('div');
+     
+
         
+        const taskContainer = document.createElement('div');
+        taskContainer.classList.add('task-container');
+
+
 
         bodyContent.appendChild(taskContainer);
 
-       
+
 
 
         const taskTitle = document.createElement('div');
@@ -42,30 +47,30 @@ const changeTaskDOM = (() => {
     const addNewTask = (e) => {
         const modalContainer = document.getElementById('modal-container');
         modalContainer.classList.add('show');
-        const taskTitleInput = document.getElementById('title-input');
+        
+
+
 
         
 
-        const submitTask = e => {
-            e.preventDefault();
-            let task = CreateTask(taskTitleInput.value);
-            const modalContainer = document.getElementById('modal-container');
-            modalContainer.classList.remove('show');
-
-            newTask(task);
-            projectObj.myTasks.push(task);
-        }
-
-        const taskModalForm = document.getElementById('modal-form');
-        taskModalForm.addEventListener('submit', submitTask);
+       
 
 
-  
+
     }
+    const taskTitleInput = document.getElementById('title-input');
+    const submitTask = e => {
+        e.preventDefault();
+        let task = CreateTask(taskTitleInput.value);
+        const modalContainer = document.getElementById('modal-container');
+        modalContainer.classList.remove('show');
+        taskTitleInput.value = '';
+        newTask(task);
+        projectObj.myTasks.push(task);
+    }
+    const taskModalForm = document.getElementById('modal-form');
+    taskModalForm.addEventListener('submit', submitTask);
 
-
-  
-    
     // Task Title DOM
     const openProject = (project) => {
         projectObj = project;
@@ -83,42 +88,45 @@ const changeTaskDOM = (() => {
 
         projTitleContainer.appendChild(projTitle);
 
-    
-        if(project.myTasks.length !=0){
+
+        if (project.myTasks.length != 0) {
             //console.log(project.tasks);
-            project.myTasks.forEach((task)=>{
+            project.myTasks.forEach((task) => {
                 newTask(task);
             })
-        } 
+        }
 
 
-        
-        const addTask=document.createElement("div");
-        addTask.textContent="➕ Add a new task...";
-        addTask.addEventListener('click',addNewTask);
+
+        const addTask = document.createElement("div");
+        addTask.innerHTML = 
+        `<button class="add-task-btn" id="add-task-btn">
+            <i class="fa-solid fa-circle-plus"></i>
+        </button>`;
+        addTask.addEventListener('click', addNewTask);
         addTask.classList.add("new-task");
-        bodyContent.appendChild(addTask);
-       
-        
+        projTitleContainer.appendChild(addTask);
 
-      
+
+
+
 
         // Add task btn
-      
-       
-        // 
-        // 
-        
 
-   
+
+        // 
+        // 
+
+
+
 
 
     }
 
     // const addTaskBtn = document.getElementById('add-task-btn');
     // addTaskBtn.addEventListener('click', addNewTask);
-   
-   
+
+
 
 
 

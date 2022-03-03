@@ -16,14 +16,17 @@
 
     <!-- Header/Nav bar -->
     <div class="header-container">
-        <nav class="nav-container">
-            <button class="side-btn nav-btn" id="side-bar-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <!-- <button class="add-task-btn" id="add-task-btn">
+
+        <button class="side-btn nav-btn" id="side-bar-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <h1 class="logo" id="logo">To-Do-List</h1>
+
+        <!-- <button class="add-task-btn" id="add-task-btn">
                 <i class="fa-solid fa-circle-plus"></i>
             </button> -->
-        </nav>
+
+
     </div>
 
     <!-- Body -->
@@ -34,10 +37,10 @@
         <div class="body-content" id="body-content">
             <span id="project-title">Choose or create a project to begin!</span>
 
+            <div class="task-body" id="task-body"></div>
 
         </div>
 
-        <div class="task-content" id="task-content"></div>
     </div>
 
 
@@ -99,7 +102,7 @@
                 <form class="modal-form" id="modal-form">
                     <div>
                         <label for="title">Title:</label>
-                        <input type="text" class="title-input form-input" id="title-input">
+                        <input type="text" class="title-input form-input" id="title-input" autocomplete="off">
                     </div>
 
                     <!-- <div>

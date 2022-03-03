@@ -107,6 +107,9 @@ const changeProjectDOM = (() => {
         projectContainer.classList.add('project-container');
         projectContainer.setAttribute('id', 'project-container');
 
+     
+        
+
         const projectBtnContainer = document.createElement('div');
         projectBtnContainer.classList.add('project-btn-container');
 

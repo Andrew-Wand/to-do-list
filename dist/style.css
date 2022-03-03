@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 
 * {
     box-sizing: border-box;
@@ -7,16 +8,17 @@
 body {
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif;
- 
+    overflow: hidden;
 }
 
 /* Header - Nav-bar */
 
 .header-container {
     background-color: #91C483;
-    height: 3em;
+    height: 5em;
     z-index: 999;
     position: relative;
+    border-bottom: 3px solid #000;
 }
 
 .nav-container {
@@ -26,14 +28,25 @@ body {
 .nav-btn {
     background: transparent;
     border: none;
-    font-size: 24px;
+    font-size: 30px;
     cursor: pointer;
-    margin-left: 2em;
+    margin-left: 1em;
+    margin-top: .6em;
 }
 
 .nav-btn:hover {
     background-color: rgba(0, 0, 0, .3);
     border-radius: 2px;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    top: -40%;
+    font-size: 48px;
+    font-family: 'Shadows Into Light', sans-serif;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 
@@ -81,7 +94,7 @@ body {
 
 /* Side-bar */
 .side-bar {
-    background-color: #EFEFEF;
+    background-color: #f7f7f7;
     position: fixed;
     top: 0;
     left: 0;
@@ -115,7 +128,7 @@ body {
 
 .project-side-text {
     display: block;
-    margin: 20% 1%;
+    margin: 30% 1%;
     padding: 10px;
     cursor: default;
     border-bottom: 1px solid #000;
@@ -170,12 +183,10 @@ body {
     gap: 10px;
 }
 
-.project-container{
-    background-color: #f0caca;
+.project-container {
+    background-color: #f7f7f7;
 
-    width: 100%;
-    height: 20%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 85%;
     margin: auto;
     cursor: pointer;
     border-radius: 8px;
@@ -185,7 +196,7 @@ body {
 }
 
 .project-container:hover {
-    background-color: #AD6767;
+    background-color: #ffffff;
 }
 
 
@@ -193,7 +204,7 @@ body {
 
 .project-title {
     margin: 15px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .project-btn-container {
@@ -204,7 +215,8 @@ body {
 }
 
 
-.project-delete-btn, .project-edit-btn {
+.project-delete-btn,
+.project-edit-btn {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -212,56 +224,60 @@ body {
     height: 24px;
 }
 
-.project-delete-btn:hover, .project-edit-btn:hover {
+.project-delete-btn:hover,
+.project-edit-btn:hover {
     background-color: rgba(0, 0, 0, .3);
     border-radius: 5px;
-    
+
 }
 
 
 /* Inside project */
 
 .proj-title-container {
-    background-color: #f1dfdf;
+    background-color: #DDEED9;
     width: 95%;
-    height: 95px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    margin: 10px auto;
+    height: 65px;
     border-radius: 8px;
-    position: relative;
+    text-align: center;
+    /* padding: 30px; */
+    margin: 20px 20px 100px 20px
+    
 }
 
-/* .proj-title {
+.proj-title {
+    text-align: left;
+    font-size: 38px;
+    font-family: 'Source Sans Pro', sans-serif;
     padding: 10px;
-    margin-left: 20px;
-} */
+}
 
 .add-task-btn {
-    position: absolute;
     background-color: transparent;
     border: none;
     font-size: 28px;
-    left: 50%;
-    top: 20%;
-    transform: translateX(-50%);
+ 
     cursor: pointer;
 }
 
 /* Tasks */
 
-.task-content {
- 
+.task-container {
+    font-size: 20px;
+    border-bottom: 1px solid #000;
+    width: 50%;
+    padding: 10px;
 }
 
-.hidden{
-    top:0;
-    left:0;
+.hidden {
+    top: 0;
+    left: 0;
     pointer-events: none !important;
     position: absolute !important;
-    max-height:0 !important;
+    max-height: 0 !important;
 
     /* do nth but avoid opacity transition when position absolute */
-    transition: max-height 1s ease-out !important;    
+    transition: max-height 1s ease-out !important;
     opacity: 0 !important;
 }
 
@@ -333,7 +349,4 @@ body {
     font-size: 16px;
 }
 
-.form-btn {
-
-}
-
+.form-btn {}
