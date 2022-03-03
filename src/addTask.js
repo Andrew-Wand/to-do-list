@@ -1,10 +1,11 @@
 const changeTaskDOM = (() => {
+    
     let projectObj;
 
     const bodyContent = document.getElementById('body-content');
 
     const bodyContain = document.getElementById('project-title');
-    
+
 
     const CreateTask = (title) => {
         return {
@@ -21,36 +22,33 @@ const changeTaskDOM = (() => {
 
     // Create Task in HTML
     const newTask = (task) => {
-        const ul = document.createElement('ul');
-        const li = document.createElement('li');
+        const taskContainer = document.createElement('div');
+        
 
-        bodyContent.appendChild(ul);
+        bodyContent.appendChild(taskContainer);
 
-        ul.appendChild(li);
+       
 
-        const taskContent = document.createElement('div');
-        taskContent.classList.add('task-content');
-        li.appendChild(taskContent);
 
         const taskTitle = document.createElement('div');
         taskTitle.classList.add('task-title');
         taskTitle.textContent = `${task.title}`;
-        taskContent.appendChild(taskTitle);
+        taskContainer.appendChild(taskTitle);
 
 
     }
 
 
-    const addNewTask = (task) => {
-
-        const taskTitleInput = document.getElementById('title-input');
-
+    const addNewTask = (e) => {
         const modalContainer = document.getElementById('modal-container');
         modalContainer.classList.add('show');
+        const taskTitleInput = document.getElementById('title-input');
+
+        
 
         const submitTask = e => {
             e.preventDefault();
-            let task = Task(taskTitleInput.value);
+            let task = CreateTask(taskTitleInput.value);
             const modalContainer = document.getElementById('modal-container');
             modalContainer.classList.remove('show');
 
@@ -58,18 +56,20 @@ const changeTaskDOM = (() => {
             projectObj.tasks.push(task);
         }
 
-        const taskSubmitBtn = document.getElementById('modal-submit');
-        taskSubmitBtn.addEventListener('click', submitTask);
+        const taskModalForm = document.getElementById('modal-form');
+        taskModalForm.addEventListener('submit', submitTask);
 
+
+  
     }
 
 
-
-
+  
+    
     // Task Title DOM
     const openProject = (project) => {
         projectObj = project;
-    
+
         // Title container
         const projTitleContainer = document.createElement('div');
         projTitleContainer.classList.add('proj-title-container');
@@ -83,25 +83,41 @@ const changeTaskDOM = (() => {
 
         projTitleContainer.appendChild(projTitle);
 
-        if (project.tasks.length != 0) {
-            project.tasks.forEach((task) => {
-                newTask(task);
-            })
-        }
+        // if (project.tasks.length != 0) {
+        //     project.tasks.forEach((task) => {
+        //         newTask(task);
+        //     })
+        // }
+       
 
 
+        
+        const addTask=document.createElement("div");
+        addTask.textContent="➕ Add a new task...";
+        addTask.addEventListener('click',addNewTask);
+        addTask.classList.add("new-task");
+        bodyContent.appendChild(addTask);
+       
+        
 
+      
 
         // Add task btn
-        const addTaskBtn = document.getElementById('add-task-btn');
-        projTitleContainer.appendChild(addTaskBtn);
-        addTaskBtn.addEventListener('click', addNewTask);
+      
+       
+        // 
+        // 
+        
 
+   
 
 
     }
 
-
+    // const addTaskBtn = document.getElementById('add-task-btn');
+    // addTaskBtn.addEventListener('click', addNewTask);
+   
+   
 
 
 
@@ -117,10 +133,7 @@ const changeTaskDOM = (() => {
 
 
 
-function openTaskModal() {
-    const modalContainer = document.getElementById('modal-container');
-    modalContainer.classList.add('show');
-}
+
 
 
 

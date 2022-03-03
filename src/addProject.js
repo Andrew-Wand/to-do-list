@@ -89,6 +89,8 @@ const changeProjectDOM = (() => {
         e.target.classList.add('project-click');
         changeTaskDOM.openProject(projectKey);
 
+        
+
     }
 
 
