@@ -68,6 +68,8 @@ const changeProjectDOM = (() => {
             return
         }
 
+        
+
         let projectKey;
 
         changeTaskDOM.resetProject();

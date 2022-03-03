@@ -4,7 +4,7 @@ const changeTaskDOM = (() => {
 
     const bodyContent = document.getElementById('body-content');
 
-    const bodyContain = document.getElementById('project-title');
+    const pTitle = document.getElementById('project-title');
 
 
     const CreateTask = (title) => {
@@ -53,7 +53,7 @@ const changeTaskDOM = (() => {
             modalContainer.classList.remove('show');
 
             newTask(task);
-            projectObj.tasks.push(task);
+            projectObj.myTasks.push(task);
         }
 
         const taskModalForm = document.getElementById('modal-form');
@@ -79,16 +79,17 @@ const changeTaskDOM = (() => {
         // Title
         const projTitle = document.createElement('div');
         projTitle.classList.add('proj-title');
-        projTitle.textContent = project.name;
+        projTitle.textContent = `${project.name}`;
 
         projTitleContainer.appendChild(projTitle);
 
-        // if (project.tasks.length != 0) {
-        //     project.tasks.forEach((task) => {
-        //         newTask(task);
-        //     })
-        // }
-       
+    
+        if(project.myTasks.length !=0){
+            //console.log(project.tasks);
+            project.myTasks.forEach((task)=>{
+                newTask(task);
+            })
+        } 
 
 
         
