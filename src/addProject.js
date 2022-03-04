@@ -30,18 +30,7 @@ const changeProjectDOM = (() => {
         projectTitleInput.required = true;
         
 
-       
-        
-
-        // const projForm = document.getElementById('add-project-form');
-        
-        // const submitProjectBtn = document.getElementById('project-submit-btn');
-        // submitProjectBtn.addEventListener('click', submitProject);
-        
-        
-        // setTimeout(function () {
-        //     submitProjectBtn.setAttribute('disabled', false);
-        // }, 3000);
+    
     }
 
     const submitProject = (event) => {
@@ -54,8 +43,6 @@ const changeProjectDOM = (() => {
 
         
         
-        // submitProjectBtn.setAttribute('disabled', true);
-
     }
 
     const projForm = document.getElementById('add-project-form');

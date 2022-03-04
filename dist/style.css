@@ -71,6 +71,13 @@ body {
     width: 100%;
 }
 
+.home-title {
+    font-size: 32px;
+    margin-top: 3em;
+    text-decoration: underline;
+
+}
+
 /* Body content */
 
 .body-content {
