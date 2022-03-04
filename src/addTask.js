@@ -27,6 +27,13 @@ const changeTaskDOM = (() => {
         taskContainer.classList.add('task-container');
         bodyContent.appendChild(taskContainer);
 
+        // Task check box
+        const checkBox = document.createElement('input');
+        checkBox.classList.add('task-check-box');
+        checkBox.type = 'checkbox';
+        taskContainer.appendChild(checkBox);
+
+
 
 
         // Task title
@@ -60,13 +67,21 @@ const changeTaskDOM = (() => {
         const deleteTask = e => {
             taskContainer.textContent = '';
             taskContainer.style.display = 'none';
-            const index = myProjects.myTasks.indexOf(project);
-            if (index > -1) {
-                myProjects.myTasks.splice(index, 1);
-            }
+            const index=projectObj.myTasks.indexOf(task);
+            if(index>-1) projectObj.myTasks.splice(index,1);
         }
         
         taskDeleteBtn.addEventListener('click', deleteTask);
+
+
+        // Check box event listener
+        const checkBoxEvent = () => {
+
+            taskTitle.classList.toggle('derp');
+            // taskTitle.style.setProperty('text-decoration', 'line-through');
+        }
+
+        checkBox.addEventListener('click', checkBoxEvent);
 
     }
 

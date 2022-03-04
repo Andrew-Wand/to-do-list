@@ -271,6 +271,8 @@ body {
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
+    margin-bottom: 30px;
 }
 
 .task-delete-btn, .task-edit-btn {
@@ -286,6 +288,14 @@ body {
     background-color: rgba(0, 0, 0, .3);
     border-radius: 5px;
 
+}
+
+.task-check-box {
+    transform: scale(1.3);
+}
+
+.task-title.derp {
+    text-decoration: line-through;
 }
 
 .hidden {
