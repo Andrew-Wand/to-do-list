@@ -22,42 +22,63 @@ const changeTaskDOM = (() => {
 
     // Create Task in HTML
     const newTask = (task) => {
-     
-
         
         const taskContainer = document.createElement('div');
         taskContainer.classList.add('task-container');
-
-
-
         bodyContent.appendChild(taskContainer);
 
 
 
-
+        // Task title
         const taskTitle = document.createElement('div');
         taskTitle.classList.add('task-title');
         taskTitle.textContent = `${task.title}`;
         taskContainer.appendChild(taskTitle);
 
+        // Task btn container
+        const taskBtnContainer = document.createElement('div');
+        taskContainer.appendChild(taskBtnContainer)
+
+        // Task edit btn
+        const taskEditBtn = document.createElement('button');
+        taskEditBtn.textContent = 'Edit';
+        taskEditBtn.classList.add('task-delete-btn');
+        taskEditBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+
+        taskBtnContainer.appendChild(taskEditBtn);
+
+        // Task delete btn
+        const taskDeleteBtn = document.createElement('button');
+        taskDeleteBtn.textContent = 'Delete';
+        taskDeleteBtn.classList.add('task-edit-btn');
+        taskDeleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+
+        taskBtnContainer.appendChild(taskDeleteBtn);
+
+
+        // Task delete btn event listener
+        const deleteTask = e => {
+            taskContainer.textContent = '';
+            taskContainer.style.display = 'none';
+            const index = myProjects.myTasks.indexOf(project);
+            if (index > -1) {
+                myProjects.myTasks.splice(index, 1);
+            }
+        }
+        
+        taskDeleteBtn.addEventListener('click', deleteTask);
 
     }
 
-
+    // Open add new task modal
     const addNewTask = (e) => {
         const modalContainer = document.getElementById('modal-container');
         modalContainer.classList.add('show');
-        
-
-
-
-        
-
-       
-
-
 
     }
+
+
+    // Submit task
     const taskTitleInput = document.getElementById('title-input');
     const submitTask = e => {
         e.preventDefault();
@@ -106,20 +127,6 @@ const changeTaskDOM = (() => {
         addTask.addEventListener('click', addNewTask);
         addTask.classList.add("new-task");
         projTitleContainer.appendChild(addTask);
-
-
-
-
-
-        // Add task btn
-
-
-        // 
-        // 
-
-
-
-
 
     }
 

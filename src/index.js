@@ -14,7 +14,6 @@ if (localStorage.hasOwnProperty('projects')) {
 
 
 
-
 // Side bar
 const sideBtn = document.getElementById('side-bar-btn');
 const sideBar = document.getElementById('side-bar');

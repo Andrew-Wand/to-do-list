@@ -117,19 +117,22 @@ const changeProjectDOM = (() => {
         projectTitle.textContent = `${project.name}`;
         projectTitle.classList.add('project-title');
 
+        const projEditBtn = document.createElement('button');
+        projEditBtn.textContent = 'Edit';
+        projEditBtn.classList.add('project-edit-btn');
+        projectBtnContainer.appendChild(projEditBtn);
+
         const projDeleteBtn = document.createElement('button');
         projDeleteBtn.textContent = 'Delete';
         projDeleteBtn.classList.add('project-delete-btn');
 
-        const projEditBtn = document.createElement('button');
-        projEditBtn.textContent = 'Edit';
-        projEditBtn.classList.add('project-edit-btn');
+        
 
         projectContainer.appendChild(projectTitle);
         projectContainer.appendChild(projectBtnContainer);
 
         projectBtnContainer.appendChild(projDeleteBtn);
-        projectBtnContainer.appendChild(projEditBtn);
+        
 
         projEditBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
         projDeleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
