@@ -149,6 +149,8 @@ const changeTaskDOM = (() => {
     // addTaskBtn.addEventListener('click', addNewTask);
 
 
+    
+
 
 
 
@@ -168,14 +170,6 @@ const changeTaskDOM = (() => {
 
 
 
-// Hide task form
-const hideListForm = () => {
-    const listForm = document.getElementById('modal-form');
-    const listInput = document.getElementById('title-input');
-
-    listInput.value = "";
-    listForm.classList.add("hidden");
-}
 
 
 
@@ -191,13 +185,6 @@ const hideListForm = () => {
 
 
 
-
-
-// update title of the content
-function updateTitle(nameNode) {
-    const mainTitle = document.querySelector('.proj-title');
-    mainTitle.textContent = nameNode.textContent;
-}
 
 
 

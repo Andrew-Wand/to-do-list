@@ -39,6 +39,18 @@ const addNewProject = e => {
 
 addProjectBtn.addEventListener('click', addNewProject);
 
+// Cancel btn modal
+const projCancelBtn = document.getElementById('project-cancel-btn');
+projCancelBtn.addEventListener('click', () => {
+    const projForm = document.getElementById('add-project-form');
+    projForm.classList.remove('show');
+});
+const modalCancel = document.querySelector('.modal-cancel');
+modalCancel.addEventListener('click', () => {
+    const modalCont = document.getElementById('modal-container');
+    modalCont.classList.remove('show');
+});
+
 
 
 
@@ -46,3 +58,4 @@ window.onbeforeunload = () => {
     projects = changeProjectDOM.getProjectArr();
     localStorage.setItem('projects', JSON.stringify(projects));
 }
+
